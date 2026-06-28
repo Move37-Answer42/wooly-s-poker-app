@@ -16,22 +16,22 @@
 
   <style>
     :root {
-      --bg:        #0a1a0a;
-      --surface:   #122012;
-      --surface-2: #1a2e1a;
-      --surface-3: #203820;
-      --border:    #2a422a;
-      --border-2:  #3a5a3a;
-      --text:      #e8f4e8;
-      --muted:     #9ab89a;
-      --dim:       #5a7a5a;
-      --green:     #2dde6e;
-      --green-bg:  rgba(45,222,110,0.12);
-      --red:       #ff6b6b;
-      --red-bg:    rgba(255,107,107,0.12);
-      --gold:      #f0c940;
-      --gold-dim:  #c9a020;
-      --gold-bg:   rgba(240,201,64,0.12);
+      --bg:        #070d07;
+      --surface:   #0e1a0e;
+      --surface-2: #132013;
+      --surface-3: #182818;
+      --border:    #1c2e1c;
+      --border-2:  #28402a;
+      --text:      #ccdacc;
+      --muted:     #7a9a7a;
+      --dim:       #415a41;
+      --green:     #22c55e;
+      --green-bg:  rgba(34,197,94,0.08);
+      --red:       #f05050;
+      --red-bg:    rgba(240,80,80,0.08);
+      --gold:      #d4af37;
+      --gold-dim:  #9c7f22;
+      --gold-bg:   rgba(212,175,55,0.08);
       --ff-disp:   'Cinzel', serif;
       --ff-body:   'DM Sans', sans-serif;
       --ff-mono:   'IBM Plex Mono', monospace;
@@ -50,14 +50,13 @@
     #app { height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
 
     .app-header {
-      padding: 14px 20px 10px; background: var(--surface);
-      border-bottom: 1px solid var(--border-2);
+      padding: 14px 20px 10px; background: var(--bg);
+      border-bottom: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
-    .app-logo { font-family: var(--ff-disp); font-size: 21px; font-weight: 600; color: var(--gold); letter-spacing: 0.12em; line-height: 1; text-shadow: 0 0 20px rgba(240,201,64,0.3); }
-    .app-logo small { display: block; font-family: var(--ff-body); font-size: 9px; font-weight: 300; color: var(--muted); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 3px; }
-    .header-suits { color: var(--gold-dim); font-size: 18px; letter-spacing: 5px; }
+    .app-logo { font-family: var(--ff-disp); font-size: 21px; font-weight: 600; color: var(--gold); letter-spacing: 0.12em; line-height: 1; }
+    .app-logo small { display: block; font-family: var(--ff-body); font-size: 9px; font-weight: 300; color: var(--dim); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 3px; }
+    .header-suits { color: var(--dim); font-size: 18px; letter-spacing: 5px; }
 
     #main { flex: 1; overflow-y: auto; overflow-x: hidden; padding-bottom: calc(var(--nav-h) + var(--safe-b) + 8px); -webkit-overflow-scrolling: touch; }
 
@@ -69,9 +68,8 @@
       position: fixed; bottom: 0; left: 0; right: 0;
       height: calc(var(--nav-h) + var(--safe-b));
       padding-bottom: var(--safe-b);
-      background: var(--surface-2); border-top: 1px solid var(--border-2);
+      background: var(--surface); border-top: 1px solid var(--border);
       display: flex; z-index: 100;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
     }
     .nav-btn {
       flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
@@ -83,25 +81,25 @@
 
     /* ── Dashboard ── */
     .hero {
-      padding: 24px 20px 20px; text-align: center; border-bottom: 1px solid var(--border-2);
-      background: radial-gradient(ellipse at 50% 0%, rgba(45,222,110,0.08) 0%, transparent 70%);
+      padding: 24px 20px 20px; text-align: center; border-bottom: 1px solid var(--border);
+      background: radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.04) 0%, transparent 70%);
     }
-    .hero-eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--muted); margin-bottom: 10px; }
-    .hero-amount { font-family: var(--ff-mono); font-size: 54px; font-weight: 600; line-height: 1; filter: drop-shadow(0 0 20px currentColor); }
+    .hero-eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--dim); margin-bottom: 10px; }
+    .hero-amount { font-family: var(--ff-mono); font-size: 54px; font-weight: 600; line-height: 1; }
     .hero-amount.pos { color: var(--green); }
     .hero-amount.neg { color: var(--red); }
     .hero-amount.neu { color: var(--muted); }
     .hero-meta { margin-top: 8px; font-size: 12px; color: var(--muted); }
     .streak-pill {
       display: inline-flex; align-items: center; gap: 5px;
-      background: var(--gold-bg); border: 1px solid rgba(240,201,64,0.4);
+      background: var(--gold-bg); border: 1px solid rgba(212,175,55,0.25);
       border-radius: 20px; padding: 4px 12px; font-size: 11px; color: var(--gold); margin-top: 10px;
     }
 
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px 16px 4px; }
-    .stat { background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 10px; padding: 13px 14px; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 13px 14px; }
     .stat.wide { grid-column: span 2; }
-    .stat-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted); margin-bottom: 4px; }
+    .stat-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 4px; }
     .stat-val { font-family: var(--ff-mono); font-size: 22px; font-weight: 500; }
     .stat-val.pos { color: var(--green); }
     .stat-val.neg { color: var(--red); }
@@ -109,9 +107,9 @@
     .stat-sub { font-size: 11px; color: var(--dim); margin-top: 1px; }
 
     .chart-section { padding: 16px 16px 4px; }
-    .section-head { font-family: var(--ff-disp); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .chart-card { background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 12px; padding: 14px 14px 10px; margin-bottom: 10px; }
-    .chart-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 12px; }
+    .section-head { font-family: var(--ff-disp); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 10px; }
+    .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 14px 10px; margin-bottom: 10px; }
+    .chart-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--dim); margin-bottom: 12px; }
 
     /* ── Log form ── */
     .log-wrap { padding: 16px 16px 24px; }
@@ -119,11 +117,11 @@
     .fg { margin-bottom: 14px; position: relative; }
     .fg label { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--dim); margin-bottom: 6px; }
     .fi, .fs {
-      width: 100%; background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 8px;
+      width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
       color: var(--text); font-family: var(--ff-body); font-size: 16px; padding: 11px 13px; outline: none;
       -webkit-appearance: none; transition: border-color 0.15s;
     }
-    .fi:focus, .fs:focus { border-color: var(--gold); }
+    .fi:focus, .fs:focus { border-color: var(--gold-dim); }
     .fi::placeholder { color: var(--dim); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -152,18 +150,18 @@
     /* ── History ── */
     .history-filters { display: flex; gap: 10px; padding: 12px 16px 6px; }
     .fs-sm {
-      flex: 1; background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 8px;
+      flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
       color: var(--text); font-family: var(--ff-body); font-size: 13px; padding: 8px 11px; outline: none; -webkit-appearance: none;
     }
     .history-summary {
-      margin: 0 16px 8px; padding: 10px 14px; background: var(--surface-2); border: 1px solid var(--border-2);
+      margin: 0 16px 8px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border);
       border-radius: 8px; display: flex; justify-content: space-between; align-items: center;
     }
     .hs-label { font-size: 11px; color: var(--muted); }
     .hs-val { font-family: var(--ff-mono); font-size: 16px; font-weight: 500; }
     .session-list { padding: 0 16px 8px; }
     .scard {
-      background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
       padding: 12px 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
     }
     .scard-info { flex: 1; min-width: 0; }
@@ -173,11 +171,25 @@
     .scard-pnl.pos { color: var(--green); }
     .scard-pnl.neg { color: var(--red); }
     .scard-del { background: none; border: none; color: var(--dim); font-size: 20px; cursor: pointer; padding: 2px 4px; line-height: 1; }
+    .scard-edit { background: none; border: none; color: var(--gold-dim); font-size: 16px; cursor: pointer; padding: 2px 4px; line-height: 1; }
+    .scard-edit:active { color: var(--gold); }
+    .edit-banner {
+      background: var(--gold-bg); border: 1px solid var(--border-2);
+      border-radius: 8px; padding: 10px 12px; margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .edit-banner-text { font-size: 12px; color: var(--gold); font-family: var(--ff-mono); }
+    .edit-banner-cancel {
+      background: none; border: 1px solid var(--border-2); color: var(--muted);
+      font-family: var(--ff-mono); font-size: 11px; padding: 5px 10px; border-radius: 6px;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .edit-banner-cancel:active { background: var(--surface-2); }
 
     /* ── Export ── */
     .export-wrap { padding: 16px 16px 24px; }
-    .export-card { background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 12px; padding: 18px; margin-bottom: 12px; }
-    .export-card-title { font-family: var(--ff-disp); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 5px; }
+    .export-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 12px; }
+    .export-card-title { font-family: var(--ff-disp); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: var(--gold-dim); margin-bottom: 5px; }
     .export-card-desc { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
     .btn-action {
       width: 100%; padding: 11px; background: var(--surface-3); border: 1px solid var(--border-2);
@@ -189,12 +201,12 @@
 
     /* ── Calendar picker ── */
     .cal-trigger {
-      width: 100%; background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 8px;
+      width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
       color: var(--text); font-family: var(--ff-body); font-size: 16px; padding: 11px 13px;
       display: flex; justify-content: space-between; align-items: center; cursor: pointer;
       transition: border-color 0.15s; user-select: none;
     }
-    .cal-trigger:active, .cal-trigger.open { border-color: var(--gold); }
+    .cal-trigger:active, .cal-trigger.open { border-color: var(--gold-dim); }
     .cal-chevron { color: var(--dim); font-size: 13px; }
     .cal-drop {
       position: absolute; z-index: 60; width: 100%; top: calc(100% + 4px); left: 0;
@@ -241,7 +253,11 @@
     <!-- LOG -->
     <div class="view active" id="view-log">
       <div class="log-wrap">
-        <div class="form-section-head">New Session</div>
+        <div class="edit-banner" id="edit-banner" style="display:none">
+          <span class="edit-banner-text">✎ Editing session</span>
+          <button class="edit-banner-cancel" onclick="cancelEdit()">Cancel</button>
+        </div>
+        <div class="form-section-head" id="log-heading">New Session</div>
 
         <div class="fg" id="cal-fg">
           <label>Date</label>
@@ -357,7 +373,11 @@
     <div class="view" id="view-tourn">
       <div id="tourn-dash"></div>
       <div class="log-wrap" style="padding-top:0">
-        <div class="form-section-head" style="margin-top:16px">Log Tournament</div>
+        <div class="edit-banner" id="tedit-banner" style="display:none">
+          <span class="edit-banner-text">✎ Editing tournament</span>
+          <button class="edit-banner-cancel" onclick="cancelEditTourn()">Cancel</button>
+        </div>
+        <div class="form-section-head" id="tlog-heading" style="margin-top:16px">Log Tournament</div>
 
         <div class="fg" id="tcal-fg">
           <label>Date</label>
@@ -484,6 +504,7 @@
 
 
 let sessions = JSON.parse(localStorage.getItem('felt_v1') || '[]');
+let editingId = null;
 const save = () => localStorage.setItem('felt_v1', JSON.stringify(sessions));
 const uid  = () => Date.now().toString(36) + Math.random().toString(36).slice(2,6);
 const uniqVenues = () => [...new Set(sessions.map(s => s.venue).filter(Boolean))];
@@ -531,13 +552,30 @@ function renderDash() {
 
   const sorted = [...sessions].sort((a,b) => a.date.localeCompare(b.date));
   const pnls   = s => s.cashout - s.buyin;
-  const cashTotal  = sessions.reduce((s,x) => s + pnls(x), 0);
-  const tournTotal = tournaments.reduce((s,t) => s + (t.winnings||0) - t.buyin - (t.reentries||0), 0);
-  const total  = cashTotal + tournTotal;
-  const avgSes = cashTotal / sessions.length;
+  const total  = sessions.reduce((s,x) => s + pnls(x), 0);
+  const wins   = sessions.filter(s => pnls(s) > 0).length;
+  const wr     = Math.round(wins / sessions.length * 100);
+  const avgSes = total / sessions.length;
   const totalM = sessions.reduce((s,x) => s + (x.dur||0), 0);
   const hrs    = (totalM/60).toFixed(1);
-  const hourly = totalM > 0 ? cashTotal / (totalM/60) : null;
+  const hourly = totalM > 0 ? total / (totalM/60) : null;
+  // Venue map (for future use)
+  const vmap = {};
+  sessions.forEach(s => { if (s.venue) vmap[s.venue] = (vmap[s.venue]||0) + pnls(s); });
+
+  // $/hr by stakes
+  const smap = {};
+  const shmap = {};
+  sessions.forEach(s => {
+    const raw = s.stakes ? s.stakes : 'Unknown';
+    if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return;
+    const key = normStakes(raw);
+    if (['$1/$2 PLO', '50c/$1'].includes(key)) return;
+    smap[key]  = (smap[key]  || 0) + pnls(s);
+    shmap[key] = (shmap[key] || 0) + (s.dur || 0);
+  });
+  const shourly = {};
+  Object.keys(smap).forEach(k => { if (shmap[k] >= 60) shourly[k] = smap[k] / (shmap[k] / 60); });
 
   // Streak
   const recent = [...sessions].sort((a,b) => b.date.localeCompare(a.date));
@@ -547,9 +585,9 @@ function renderDash() {
 
   el.innerHTML = `
     <div class="hero">
-      <div class="hero-eyebrow">All-Time P&L · ${sessions.length} cash · ${tournaments.length} tournaments</div>
+      <div class="hero-eyebrow">All-Time P&L · ${sessions.length} sessions</div>
       <div class="hero-amount ${pnlCls(total)}">${fmtPnl(total)}</div>
-      <div class="hero-meta">${hrs} hours played${hourly !== null ? ' · ' + fmtPnl(hourly) + '/hr cash' : ''}${tournTotal !== 0 ? ' · ' + fmtPnl(tournTotal) + ' tournaments' : ''}</div>
+      <div class="hero-meta">${hrs} hours played${hourly !== null ? ' · ' + fmtPnl(hourly) + '/hr' : ''}</div>
       ${streak >= 2 ? `<div class="streak-pill">${firstW ? '🔥' : '❄️'} ${streak}-session ${firstW?'winning':'losing'} streak</div>` : ''}
     </div>
 
@@ -568,7 +606,7 @@ function renderDash() {
       </div>
       <div class="stat">
         <div class="stat-label">Avg / Session</div>
-        <div class="stat-val ${pnlCls(avgSes)}">${fmtPnl(Math.round(avgSes))}</div>
+        <div class="stat-val ${pnlCls(avgSes)}">${fmtPnl(avgSes)}</div>
         <div class="stat-sub">per session</div>
       </div>
     </div>
@@ -598,10 +636,10 @@ function renderDash() {
       responsive: true,
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => fmtPnl(ctx.parsed.y ?? ctx.parsed.x) } } }
     };
-    const xScale = { grid: { color: '#2a422a' }, ticks: { color: '#9ab89a', font: { size: 10 }, maxTicksLimit: 8 } };
-    const yMono  = { grid: { color: '#2a422a' }, ticks: { color: '#9ab89a', font: { family: 'IBM Plex Mono', size: 10 }, callback: v => fmtPnl(v) } };
-    const yBar   = { grid: { display: false }, ticks: { color: '#9ab89a', font: { size: 12 } } };
-    const xBar   = { grid: { color: '#2a422a' }, ticks: { color: '#9ab89a', font: { family: 'IBM Plex Mono', size: 10 }, callback: v => fmtPnl(v) } };
+    const xScale = { grid: { color: '#1c2e1c' }, ticks: { color: '#415a41', font: { size: 10 }, maxTicksLimit: 8 } };
+    const yMono  = { grid: { color: '#1c2e1c' }, ticks: { color: '#415a41', font: { family: 'IBM Plex Mono', size: 10 }, callback: v => fmtPnl(v) } };
+    const yBar   = { grid: { display: false }, ticks: { color: '#ccdacc', font: { size: 12 } } };
+    const xBar   = { grid: { color: '#1c2e1c' }, ticks: { color: '#415a41', font: { family: 'IBM Plex Mono', size: 10 }, callback: v => fmtPnl(v) } };
 
     // Cumulative line
     let cum = 0;
@@ -650,9 +688,9 @@ function renderDash() {
         }]},
         options: { ...cDefaults,
           scales: {
-            x: { ...xScale, type: 'linear', title: { display: true, text: 'Hours played', color: '#9ab89a', font: { size: 10 } },
-              ticks: { color: '#9ab89a', font: { size: 10 }, callback: v => v + 'h' } },
-            y: { ...yMono, title: { display: true, text: '$/hr', color: '#9ab89a', font: { size: 10 } } }
+            x: { ...xScale, type: 'linear', title: { display: true, text: 'Hours played', color: '#415a41', font: { size: 10 } },
+              ticks: { color: '#415a41', font: { size: 10 }, callback: v => v + 'h' } },
+            y: { ...yMono, title: { display: true, text: '$/hr', color: '#415a41', font: { size: 10 } } }
           },
           plugins: { ...cDefaults.plugins,
             tooltip: { callbacks: { label: ctx => `${fmtPnl(ctx.parsed.y)}/hr at ${ctx.parsed.x}h` } }
@@ -665,6 +703,9 @@ function renderDash() {
 
 // ─── Log ─────────────────────────────────────────────────────────────────────
 function initLog() {
+  // If we just landed on log view while editing, keep edit state — editSession() set it up.
+  // Otherwise this is a fresh "New Session" — clear everything.
+  if (editingId) return;
   const pref = JSON.parse(localStorage.getItem('felt_pref') || '{}');
   calInit();
   document.getElementById('f-venue').value   = '';
@@ -674,8 +715,50 @@ function initLog() {
   document.getElementById('f-cashout').value = '';
   document.getElementById('f-hours').value   = '';
   document.getElementById('f-mins').value    = '';
+  document.getElementById('log-heading').textContent = 'New Session';
+  document.getElementById('edit-banner').style.display = 'none';
+  const btn = document.getElementById('save-btn');
+  btn.textContent = 'SAVE SESSION';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = '#060c06';
   updatePnl();
   venueAC();
+}
+
+function editSession(id) {
+  const s = sessions.find(x => x.id === id);
+  if (!s) { alert('Session not found.'); return; }
+  editingId = id;
+  // Switch to log view first so the form is on screen
+  showView('log');
+  // showView calls initLog which now early-returns because editingId is set —
+  // so we populate everything ourselves below.
+  const d = new Date(s.date + 'T00:00:00');
+  calViewYear = d.getFullYear();
+  calViewMonth = d.getMonth();
+  setCalDate(d);
+  document.getElementById('f-venue').value   = s.venue   || '';
+  document.getElementById('f-game').value    = s.game    || 'NLH';
+  document.getElementById('f-stakes').value  = s.stakes  || '';
+  document.getElementById('f-buyin').value   = s.buyin   ?? '';
+  document.getElementById('f-cashout').value = s.cashout ?? '';
+  const dur = s.dur || 0;
+  document.getElementById('f-hours').value = dur > 0 ? Math.floor(dur / 60) : '';
+  document.getElementById('f-mins').value  = dur > 0 ? dur % 60 : '';
+  document.getElementById('log-heading').textContent = 'Edit Session';
+  document.getElementById('edit-banner').style.display = 'flex';
+  const btn = document.getElementById('save-btn');
+  btn.textContent = 'UPDATE SESSION';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = '#060c06';
+  updatePnl();
+  venueAC();
+  document.getElementById('main').scrollTop = 0;
+}
+
+function cancelEdit() {
+  editingId = null;
+  initLog();
 }
 
 function updatePnl() {
@@ -736,16 +819,36 @@ function saveSession() {
     alert('Please fill in date, buy-in, and cash-out.'); return;
   }
 
-  sessions.push({ id: uid(), date, venue, game, stakes, buyin, cashout, dur: h*60+m });
+  const isEdit = !!editingId;
+  if (isEdit) {
+    const i = sessions.findIndex(s => s.id === editingId);
+    if (i === -1) { alert('Could not find the session to update.'); editingId = null; return; }
+    sessions[i] = { ...sessions[i], date, venue, game, stakes, buyin, cashout, dur: h*60+m };
+  } else {
+    sessions.push({ id: uid(), date, venue, game, stakes, buyin, cashout, dur: h*60+m });
+    // Only remember the game/stakes preference for fresh entries —
+    // editing an old session shouldn't reset what's prefilled next time.
+    localStorage.setItem('felt_pref', JSON.stringify({ game, stakes }));
+  }
   save();
-  localStorage.setItem('felt_pref', JSON.stringify({ game, stakes }));
 
   const p = cashout - buyin;
   const btn = document.getElementById('save-btn');
-  btn.textContent = `✓ ${fmtPnl(p)} Saved!`;
+  btn.textContent = isEdit ? `✓ ${fmtPnl(p)} Updated!` : `✓ ${fmtPnl(p)} Saved!`;
   btn.style.background = p >= 0 ? '#22c55e' : '#f05050';
   btn.style.color = '#fff';
-  setTimeout(() => { btn.textContent = 'SAVE SESSION'; btn.style.background = 'var(--gold)'; btn.style.color = '#060c06'; initLog(); }, 1600);
+  setTimeout(() => {
+    btn.style.background = 'var(--gold)';
+    btn.style.color = '#060c06';
+    if (isEdit) {
+      editingId = null;
+      btn.textContent = 'SAVE SESSION';
+      showView('hist');
+    } else {
+      btn.textContent = 'SAVE SESSION';
+      initLog();
+    }
+  }, 1600);
 }
 
 // ─── History ─────────────────────────────────────────────────────────────────
@@ -844,6 +947,7 @@ function renderHistory() {
         <div class="scard-meta">${escH(meta)}</div>
       </div>
       <div class="scard-pnl ${pnlCls(p)}">${fmtPnl(p)}</div>
+      <button class="scard-edit" onclick="editSession('${s.id}')" title="Edit">✎</button>
       <button class="scard-del" onclick="delSession('${s.id}')" title="Delete">×</button>
     </div>`;
   }).join('');
@@ -905,6 +1009,7 @@ function dl(name, type, content) {
 const manifest = { name: "Wooly's Poker Tracker", short_name: "Wooly's", start_url: '.', display: 'standalone', background_color: '#070d07', theme_color: '#070d07',
   icons: [{"src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjgwIiBmaWxsPSJ3aGl0ZSIvPgogIDx0ZXh0IHg9IjI1NiIgeT0iMzk1IiAKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBUaW1lcyBOZXcgUm9tYW4sIHNlcmlmIiAKICAgIGZvbnQtc2l6ZT0iNDIwIiAKICAgIGZvbnQtd2VpZ2h0PSJib2xkIgogICAgZm9udC1zdHlsZT0iaXRhbGljIgogICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBmaWxsPSIjMGEwYTBhIj5XPC90ZXh0Pgo8L3N2Zz4=", "sizes": "512x512", "type": "image/svg+xml"}] };
 const mBlob = URL.createObjectURL(new Blob([JSON.stringify(manifest)], {type:'application/json'}));
+Object.assign(document.createElement('link'), {rel:'manifest', href:mBlob}).dispatchEvent;
 const ml = document.createElement('link'); ml.rel = 'manifest'; ml.href = mBlob; document.head.appendChild(ml);
 
 // ─── Calendar picker ─────────────────────────────────────────────────────────
@@ -982,6 +1087,7 @@ document.addEventListener('click', e => {
 
 // ─── Tournaments ─────────────────────────────────────────────────────────────
 let tournaments = JSON.parse(localStorage.getItem('felt_tourn_v1') || '[]');
+let editingTournId = null;
 const saveTourns = () => localStorage.setItem('felt_tourn_v1', JSON.stringify(tournaments));
 
 function renderTournDash() {
@@ -997,7 +1103,7 @@ function renderTournDash() {
   const bestT    = [...tournaments].sort((a,b) => (b.winnings||0)-(a.winnings||0))[0];
 
   el.innerHTML = `
-    <div class="hero" style="background:radial-gradient(ellipse at 50% 0%, rgba(240,201,64,0.12) 0%, transparent 70%); border-bottom: 1px solid rgba(240,201,64,0.2)">
+    <div class="hero" style="background:radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 70%)">
       <div class="hero-eyebrow">Tournament Results · ${tournaments.length} played</div>
       <div class="hero-amount ${net>=0?'pos':net<0?'neg':'neu'}">${fmtPnl(net)}</div>
       <div class="hero-meta">$${Math.round(totalIn).toLocaleString()} invested · $${Math.round(totalOut).toLocaleString()} returned</div>
@@ -1025,6 +1131,7 @@ function renderTournDash() {
       ${[...tournaments].sort((a,b)=>b.date.localeCompare(a.date)).map(t => {
         const spent = t.buyin + (t.reentries||0);
         const net   = (t.winnings||0) - spent;
+        const itm   = (t.winnings||0) > 0;
         const place = t.finish ? `${t.finish}${t.field?' / '+t.field.toLocaleString():''}` : '';
         return `<div class="scard">
           <div class="scard-info">
@@ -1032,6 +1139,7 @@ function renderTournDash() {
             <div class="scard-meta">${fmtDate(t.date)}${t.venue?' · '+escH(t.venue):''}${place?' · '+place:''}</div>
           </div>
           <div class="scard-pnl ${net>=0?'pos':'neg'}">${fmtPnl(net)}</div>
+          <button class="scard-edit" onclick="editTournament('${t.id}')" title="Edit">✎</button>
           <button class="scard-del" onclick="delTourn('${t.id}')" title="Delete">×</button>
         </div>`;
       }).join('')}
@@ -1070,28 +1178,85 @@ function saveTournament() {
 
   if (!date || !buyin) { alert('Please fill in at least a date and buy-in.'); return; }
 
-  tournaments.push({ id: uid(), date, name, venue, buyin, reentries, finish, field, winnings });
+  const isEdit = !!editingTournId;
+  if (isEdit) {
+    const i = tournaments.findIndex(t => t.id === editingTournId);
+    if (i === -1) { alert('Could not find the tournament to update.'); editingTournId = null; return; }
+    tournaments[i] = { ...tournaments[i], date, name, venue, buyin, reentries, finish, field, winnings };
+  } else {
+    tournaments.push({ id: uid(), date, name, venue, buyin, reentries, finish, field, winnings });
+  }
   saveTourns();
 
   const net = winnings - buyin - reentries;
   const btn = document.getElementById('tsave-btn');
-  btn.textContent = `✓ ${fmtPnl(net)} Saved!`;
+  btn.textContent = isEdit ? `✓ ${fmtPnl(net)} Updated!` : `✓ ${fmtPnl(net)} Saved!`;
   btn.style.background = net>=0 ? '#22c55e' : '#f05050';
   btn.style.color = '#fff';
   setTimeout(() => {
-    btn.textContent='SAVE TOURNAMENT'; btn.style.background='var(--gold)'; btn.style.color='#060c06';
-    initTournLog();
+    btn.style.background = 'var(--gold)'; btn.style.color = '#060c06';
+    btn.textContent = 'SAVE TOURNAMENT';
+    if (isEdit) {
+      editingTournId = null;
+      initTournLog();
+      // Scroll up to the dashboard so the user sees the updated row
+      document.getElementById('main').scrollTop = 0;
+    } else {
+      initTournLog();
+    }
   }, 1600);
 }
 
 function initTournLog() {
+  // If we just landed on tourn view while editing, keep edit state — editTournament() set it up.
+  if (editingTournId) { renderTournDash(); return; }
   tCalInit();
   ['tf-name','tf-venue','tf-buyin','tf-reentries','tf-finish','tf-field','tf-winnings'].forEach(id => {
     const el = document.getElementById(id); if(el) el.value='';
   });
   const el = document.getElementById('tpnl-disp');
   if(el) { el.style.color='var(--dim)'; el.textContent='—'; }
+  document.getElementById('tlog-heading').textContent = 'Log Tournament';
+  document.getElementById('tedit-banner').style.display = 'none';
+  const btn = document.getElementById('tsave-btn');
+  btn.textContent = 'SAVE TOURNAMENT';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = '#060c06';
   renderTournDash();
+}
+
+function editTournament(id) {
+  const t = tournaments.find(x => x.id === id);
+  if (!t) { alert('Tournament not found.'); return; }
+  editingTournId = id;
+  // We're already on view-tourn, but switch defensively in case this is ever called from elsewhere
+  if (!document.getElementById('view-tourn').classList.contains('active')) showView('tourn');
+  const d = new Date(t.date + 'T00:00:00');
+  tCalViewYear = d.getFullYear();
+  tCalViewMonth = d.getMonth();
+  setTCalDate(d);
+  document.getElementById('tf-name').value      = t.name      || '';
+  document.getElementById('tf-venue').value     = t.venue     || '';
+  document.getElementById('tf-buyin').value     = t.buyin     ?? '';
+  document.getElementById('tf-reentries').value = t.reentries ?? '';
+  document.getElementById('tf-finish').value    = t.finish    ?? '';
+  document.getElementById('tf-field').value     = t.field     ?? '';
+  document.getElementById('tf-winnings').value  = t.winnings  ?? '';
+  // Trigger the P&L preview by dispatching an input event
+  document.getElementById('tf-buyin').dispatchEvent(new Event('input', {bubbles:true}));
+  document.getElementById('tlog-heading').textContent = 'Edit Tournament';
+  document.getElementById('tedit-banner').style.display = 'flex';
+  const btn = document.getElementById('tsave-btn');
+  btn.textContent = 'UPDATE TOURNAMENT';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = '#060c06';
+  // Form sits below the dashboard — scroll to it so the banner is visible
+  document.getElementById('tlog-heading').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function cancelEditTourn() {
+  editingTournId = null;
+  initTournLog();
 }
 
 // ─── Tournament calendar (mirrors main cal) ───────────────────────────────────
